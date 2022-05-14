@@ -13,8 +13,9 @@ window.onload = async () => {
 		if(isNaN(power_usage)) power_usage = 0;
 
 		const battery_capacity = night_time_s * power_usage;
+		const required_solar_panels = Math.ceil(power_usage / solar_panel_max_output_kps * 2);
 
-		panels_elem.innerText = Math.ceil(power_usage / solar_panel_max_output_kps * 2);
+		panels_elem.innerText = `${required_solar_panels} (${required_solar_panels * solar_panel_max_output_kps}kPs)`;
 		batteries_elem.innerText = `${Math.ceil(battery_capacity / battery_capacity_kp)} (${battery_capacity}kP)`;
 	};
 };
