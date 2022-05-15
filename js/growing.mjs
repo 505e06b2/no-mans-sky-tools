@@ -26,6 +26,6 @@ const best_for_time = Object.keys(crops).sort((a, b) => {
 });
 
 window.onload = () => {
-	document.body.innerHTML += `<span>Best for time: ${best_for_time[0]}</span><br>`;
-	document.body.innerHTML += `<span>Best for time (can be outdoors): ${best_for_time.filter(x => crops[x].outdoors)[0]}</span><br>`;
+	document.body.innerHTML += `Best price/time: <span class="highlight">${best_for_time[0]}</span><br>`;
+	document.body.innerHTML += `Best price/time (can be outdoors): <span class="highlight">${best_for_time.filter(x => crops[x].outdoors)[0]}</span><br>`;
 };

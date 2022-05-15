@@ -8,8 +8,10 @@ window.onload = async () => {
 	const panels_elem = document.querySelector('#panels');
 	const batteries_elem = document.querySelector('#batteries');
 
-	document.querySelector('#usage').oninput = (e) => {
-		let power_usage = parseInt(e.target.value);
+	const usage_textbox = document.querySelector('#usage');
+
+	const updateOutputs = () => {
+		let power_usage = parseInt(usage_textbox.value);
 		if(isNaN(power_usage)) power_usage = 0;
 
 		const required_batteries = Math.ceil(night_time_s * power_usage / battery_capacity_kp);
@@ -18,4 +20,7 @@ window.onload = async () => {
 		panels_elem.innerText = `${required_solar_panels} (${required_solar_panels * solar_panel_max_output_kps}kPs)`;
 		batteries_elem.innerText = `${required_batteries} (${required_batteries * battery_capacity_kp}kP)`;
 	};
+
+	document.querySelector('#usage').oninput = updateOutputs;
+	updateOutputs();
 };
