@@ -21,6 +21,6 @@ window.onload = async () => {
 		batteries_elem.innerText = `${required_batteries} (${required_batteries * battery_capacity_kp}kP)`;
 	};
 
-	document.querySelector('#usage').oninput = updateOutputs;
+	usage_textbox.oninput = updateOutputs;
 	updateOutputs();
 };
